@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package adiego73.msgs.sensor;
+
+import "google/protobuf/timestamp.proto";
+import "Robot.proto";
+import "Pose.proto";
+
+option optimize_for = LITE_RUNTIME;
+
+message LidarPoint {
+  float angle = 1;
+  float distance = 2;
+}
+
+message Lidar {
+  google.protobuf.Timestamp stamp = 1;
+  adiego73.msgs.common.Robot robot = 2;
+  string topic = 3;
+
+  adiego73.msgs.common.Pose pose = 4;
+  repeated LidarPoint cloud = 5;
+};

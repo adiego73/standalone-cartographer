@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package adiego73.msgs.common;
+
+option optimize_for = LITE_RUNTIME;
+
+message Velocity {
+  optional float linear = 1;
+  optional float angular = 2;
+  optional float linear_x = 3;
+  optional float linear_y = 4;
+}

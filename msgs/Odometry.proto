@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package adiego73.msgs.common;
+
+import "google/protobuf/timestamp.proto";
+import "Pose.proto";
+import "Velocity.proto";
+import "Robot.proto";
+
+option optimize_for = LITE_RUNTIME;
+
+message Odometry {
+  google.protobuf.Timestamp stamp = 1;
+  adiego73.msgs.common.Robot robot = 2;
+  string topic = 3;
+
+  adiego73.msgs.common.Pose pose = 4;
+  adiego73.msgs.common.Velocity velocity = 5;
+  repeated float covariance = 6;
+}

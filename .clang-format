@@ -1,0 +1,26 @@
+---
+BasedOnStyle: Google
+Language: Cpp
+AccessModifierOffset: -4
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AlwaysBreakAfterReturnType: AllDefinitions
+AlwaysBreakTemplateDeclarations: Yes
+AllowShortLambdasOnASingleLine: Empty
+BreakBeforeBraces: Mozilla
+BreakConstructorInitializers: AfterColon
+BreakInheritanceList: AfterColon
+BreakStringLiterals: false
+ColumnLimit: 125
+CompactNamespaces: false
+ContinuationIndentWidth: 0
+Cpp11BracedListStyle: false
+IndentWidth: 4
+PointerAlignment: Left
+SortIncludes: true
+SortUsingDeclarations: true
+SpaceBeforeRangeBasedForLoopColon: true
+SpacesInParentheses: false
+TabWidth: 4
+UseTab: Never

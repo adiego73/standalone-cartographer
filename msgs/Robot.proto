@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package adiego73.msgs.common;
+
+option optimize_for = LITE_RUNTIME;
+
+message Robot {
+  int32 id = 1;
+  string name = 2;
+};

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package adiego73.msgs.sensor;
+
+import "google/protobuf/timestamp.proto";
+import "Pose.proto";
+import "Robot.proto";
+
+option optimize_for = LITE_RUNTIME;
+
+message LaserRange {
+  google.protobuf.Timestamp stamp = 1;
+  string topic = 2;
+  adiego73.msgs.common.Robot robot = 3;
+
+  adiego73.msgs.common.Pose pose = 4;
+  float distance = 5;
+  adiego73.msgs.common.Pose hitpoint = 6;
+};
