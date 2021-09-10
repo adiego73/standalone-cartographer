@@ -189,8 +189,7 @@ CartographerMapping::run()
 
     while (start_) {
         // sleep for half a second
-        std::this_thread::sleep_for(
-        std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::duration<float>(5)));
+        std::this_thread::sleep_for(std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::duration<float>(5)));
     }
 
     sub_lidar_.notifyTermination();
@@ -202,7 +201,7 @@ CartographerMapping::run()
 void
 CartographerMapping::doFinalOptimization()
 {
-//    map_builder_->FinishTrajectory(trajectory_id_);
+    //    map_builder_->FinishTrajectory(trajectory_id_);
     map_builder_->pose_graph()->RunFinalOptimization();
 }
 

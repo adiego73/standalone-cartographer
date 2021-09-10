@@ -6,8 +6,11 @@
 using namespace adiego73;
 using namespace std::chrono_literals;
 
-Client::Client(const std::string& address, int retries, std::string  name_) :
-    sAddress_(address), iRetries_(retries), zSocket_(std::make_unique<zmq::socket_t>(zCtx_, zmq::socket_type::req)), name(std::move(name_))
+Client::Client(const std::string& address, int retries, std::string name_) :
+    sAddress_(address),
+    iRetries_(retries),
+    zSocket_(std::make_unique<zmq::socket_t>(zCtx_, zmq::socket_type::req)),
+    name(std::move(name_))
 {
     zSocket_->set(zmq::sockopt::linger, 0);
     zSocket_->connect(address);
@@ -42,7 +45,7 @@ Client::send(const std::string& req, const ClientCallback& callback)
                 wait_reply = false;
                 clearSocket();
             } else {
-                std::cerr << "[CLIENT] " << name <<" :: Reconnecting to " << sAddress_ << std::endl;
+                std::cerr << "[CLIENT] " << name << " :: Reconnecting to " << sAddress_ << std::endl;
                 clearSocket();
                 // re send the request
                 zSocket_->send(request, zmq::send_flags::none);
@@ -58,11 +61,12 @@ Client::clearSocket()
     zSocket_->close();
     // build socket again.
     zSocket_ = std::make_unique<zmq::socket_t>(zCtx_, zmq::socket_type::req);
-    zSocket_->set(zmq::sockopt::linger,0);
+    zSocket_->set(zmq::sockopt::linger, 0);
     zSocket_->connect(sAddress_);
 }
 
-Client::~Client() {
+Client::~Client()
+{
     zSocket_->close();
     zCtx_.shutdown();
     zCtx_.close();

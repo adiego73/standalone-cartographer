@@ -19,7 +19,8 @@ private:
 
 public:
     explicit Publisher(const std::string& address = communication::PUBLISHER_ADDRESS);
-    bool publish(const std::string& topic, const std::string& data, const std::string& separator = communication::TOPIC_DELIMITER);
+    bool publish(const std::string& topic, const std::string& data,
+                 const std::string& separator = communication::TOPIC_DELIMITER);
 
     ~Publisher();
 

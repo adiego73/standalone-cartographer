@@ -1,9 +1,11 @@
 #include "comms/server.hpp"
+
 #include <iostream>
 
 using namespace adiego73;
 
-Server::Server(std::string address) : sAddress_(std::move(address)), pWorkerThread_(&Server::workerCallback, this) {
+Server::Server(std::string address) : sAddress_(std::move(address)), pWorkerThread_(&Server::workerCallback, this)
+{
     callback_ = [&address](const std::string& req, std::string& rep) {
         std::cerr << "Not implemented callback for Server on address " << address << std::endl;
     };
@@ -11,7 +13,7 @@ Server::Server(std::string address) : sAddress_(std::move(address)), pWorkerThre
 
 Server::~Server()
 {
-    if(bStart_) {
+    if (bStart_) {
         shutdown();
     }
 
@@ -57,9 +59,12 @@ Server::registerCallback(ServerCallback cb)
     callback_ = std::move(cb);
 }
 
-void Server::shutdown(){
+void
+Server::shutdown()
+{
     std::cout << "Closing server with address " << sAddress_ << " Pending clients: " << iConnectedClients_ << std::endl;
-    while (iConnectedClients_ != 0);
+    while (iConnectedClients_ != 0)
+        ;
 
     bStart_ = false;
 };

@@ -70,6 +70,5 @@ server_run(std::unique_ptr<CartographerMapping>& p_mapping)
 
     } while (option != 'q');
 
-
     p_mapping->stop();
 }

@@ -8,9 +8,7 @@
 
 using namespace adiego73;
 
-Subscriber::Subscriber(std::string name) :
-    sName_(std::move(name)), tThread_(&Subscriber::worker, this)
-{}
+Subscriber::Subscriber(std::string name) : sName_(std::move(name)), tThread_(&Subscriber::worker, this) {}
 
 void
 Subscriber::subscribe(std::string topic)
@@ -33,7 +31,7 @@ Subscriber::worker()
 {
     std::unique_lock lock(mutex_);
     startCondition_.wait(lock, [&]() {
-      return bStart_;
+        return bStart_;
     });
 
     zmq::message_t msg;

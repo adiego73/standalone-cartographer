@@ -18,8 +18,9 @@ private:
     std::string name;
 
     void clearSocket();
+
 public:
-    explicit Client(const std::string& address, int retries = 1, std::string  name_ = "Client");
+    explicit Client(const std::string& address, int retries = 1, std::string name_ = "Client");
     void send(const std::string& req, const ClientCallback& callback);
 
     ~Client();

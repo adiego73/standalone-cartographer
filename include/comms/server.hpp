@@ -15,7 +15,7 @@ private:
     zmq::context_t zCtx_;
     std::string sAddress_;
 
-    int iConnectedClients_{0};
+    int iConnectedClients_{ 0 };
     bool bStart_{ true };
     std::thread pWorkerThread_;
 
